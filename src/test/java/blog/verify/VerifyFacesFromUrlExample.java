@@ -218,7 +218,7 @@ public class VerifyFacesFromUrlExample {
     private static final String CANDIDATE_2 = "http://i2.irishmirror.ie/whats-on/arts-culture-news/article4291341.ece/ALTERNATES/s1227b/Fran.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"), getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"), getProperty("azure.cognitive.emotion.subscriptionKey"), getProperty("azure.cognitive.endpoint"));
         ImageOverlayBuilder imageOverlayBuilder = ImageOverlayBuilder.builder(CANDIDATE_1);
         imageOverlayBuilder.verify(CANDIDATE_2, faceScenarios.verifyFaces(CANDIDATE_1, CANDIDATE_2)).launchViewer();
     }

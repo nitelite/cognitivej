@@ -214,6 +214,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import static java.lang.System.getProperty;
+
 
 /**
  * Simple example of detecting a face from a file.
@@ -222,7 +224,10 @@ public class DetectSingleFaceFromFileExample {
     private static final String FILE_LOCATION_OF_US_PRESIDENT = "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(System.getProperty("azure.cognitive.subscriptionKey"),System.getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(
+            System.getProperty("azure.cognitive.subscriptionKey"),
+            System.getProperty("azure.cognitive.emotion.subscriptionKey"),
+            System.getProperty("azure.cognitive.endpoint"));
         File imageFile = File.createTempFile("DetectSingleFaceFromFileExample", "pic");
         //create a new java.io.File from a remote file
         FileUtils.copyURLToFile(new URL(FILE_LOCATION_OF_US_PRESIDENT), imageFile);

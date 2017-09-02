@@ -219,8 +219,10 @@ public class DetectFacialLandmarksExample {
     private static final String IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"),
-                getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(
+            getProperty("azure.cognitive.subscriptionKey"),
+            getProperty("azure.cognitive.emotion.subscriptionKey"),
+            getProperty("azure.cognitive.endpoint"));
         Face faces = faceScenarios.findSingleFace(IMAGE_URL);
         ImageOverlayBuilder.builder(IMAGE_URL).outFaceLandmarksOnImage(faces).
                 launchViewer();

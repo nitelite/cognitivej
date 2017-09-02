@@ -219,8 +219,10 @@ public class DetectEmotionFromImageUrlExample {
     private static final String IMAGE_URL = "http://i.onionstatic.com/avclub/5140/50/16x9/960.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"),
-                getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(
+            getProperty("azure.cognitive.subscriptionKey"),
+            getProperty("azure.cognitive.emotion.subscriptionKey"),
+            getProperty("azure.cognitive.endpoint"));
         ImageOverlayBuilder.builder(IMAGE_URL)
                 .outlineEmotionsOnImage(faceScenarios
                         .findEmotionFaces(IMAGE_URL)).launchViewer();

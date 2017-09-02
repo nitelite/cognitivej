@@ -219,7 +219,7 @@ public class DescribeImageExample {
 
     public static void main(String[] args) throws IOException {
         ComputerVisionScenario computerVisionScenario =
-                new ComputerVisionScenario(getProperty("azure.cognitive.vision.subscriptionKey"));
+                new ComputerVisionScenario(getProperty("azure.cognitive.vision.subscriptionKey"), getProperty("azure.cognitive.endpoint"));
         ImageDescription imageDescription = computerVisionScenario.describeImage(IMAGE_URL);
         ImageOverlayBuilder.builder(IMAGE_URL).describeImage(imageDescription).launchViewer();
     }

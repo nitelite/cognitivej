@@ -219,10 +219,9 @@ public class PixlateFacesFromImageUrlExample {
     public static final String IMAGE = "https://i.ytimg.com/vi/IipMYjcStwg/maxresdefault.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"), getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"), getProperty("azure.cognitive.emotion.subscriptionKey"), getProperty("azure.cognitive.endpoint"));
         ImageOverlayBuilder imageOverlayBuilder = ImageOverlayBuilder.builder(IMAGE);
-        faceScenarios.findFaces(IMAGE).stream()
-                .forEach(imageOverlayBuilder::pixelateFaceOnImage);
+        faceScenarios.findFaces(IMAGE).forEach(imageOverlayBuilder::pixelateFaceOnImage);
         imageOverlayBuilder.launchViewer();
 
     }

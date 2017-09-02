@@ -223,8 +223,8 @@ public class ComputerVisionScenario {
 
     private final ComputerVisionBuilder computerVisionBuilder;
 
-    public ComputerVisionScenario(@NotNull String subscriptionKey) {
-        computerVisionBuilder = new ComputerVisionBuilder(CognitiveContext.build(subscriptionKey));
+    public ComputerVisionScenario(@NotNull String subscriptionKey, @NotNull String endpointUrl) {
+        computerVisionBuilder = new ComputerVisionBuilder(CognitiveContext.build(subscriptionKey, endpointUrl));
     }
 
     /**

@@ -211,18 +211,20 @@ import cognitivej.core.ResultChain;
 
 public class CognitiveContext {
     public String subscriptionKey;
+    public String endpointUrl;
     private ResultChain resultChain = new ResultChain();
 
-    public CognitiveContext(String subscriptionKey) {
+    public CognitiveContext(String subscriptionKey, String endpointUrl) {
         this.subscriptionKey = subscriptionKey;
+        this.endpointUrl = endpointUrl;
     }
 
     public void addToResultChain(CognitiveResult cognitiveResult) {
         resultChain.addToChain(cognitiveResult);
     }
 
-    public static CognitiveContext build(String subscriptionKey) {
-        return new CognitiveContext(subscriptionKey);
+    public static CognitiveContext build(String subscriptionKey, String endpoint) {
+        return new CognitiveContext(subscriptionKey, endpoint);
     }
 
     public ResultChain getResultChain() {

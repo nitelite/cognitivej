@@ -252,13 +252,13 @@ public class FaceScenarios {
      * @param faceSubscriptionKey    your MS Cognitive key(s) - Signup here -https://www.microsoft.com/cognitive-services/en-us/face-api
      * @param emotionSubscriptionKey the emotion subscription key
      */
-    public FaceScenarios(@NotNull String faceSubscriptionKey, @Nullable String emotionSubscriptionKey) {
-        CognitiveContext faceCognitiveContext = CognitiveContext.build(faceSubscriptionKey);
+    public FaceScenarios(@NotNull String faceSubscriptionKey, @Nullable String emotionSubscriptionKey, @NotNull String endpointUrl) {
+        CognitiveContext faceCognitiveContext = CognitiveContext.build(faceSubscriptionKey, endpointUrl);
         faceListBuilder = new FaceListBuilder(faceCognitiveContext);
         personGroupBuilder = new PersonGroupBuilder(faceCognitiveContext);
         faceTaskBuilder = new FaceTaskBuilder(faceCognitiveContext);
         personBuilder = new PersonBuilder(faceCognitiveContext);
-        emotionBuilder = new EmotionBuilder(CognitiveContext.build(emotionSubscriptionKey));
+        emotionBuilder = new EmotionBuilder(CognitiveContext.build(emotionSubscriptionKey, endpointUrl));
     }
 
 
@@ -306,7 +306,7 @@ public class FaceScenarios {
         if (!exists) {
             personGroupBuilder.createGroup(personGroupId, personGroupId, "").withNoResult();
         }
-        people.simplePersons().stream().forEach(simplePerson -> {
+        people.simplePersons().forEach(simplePerson -> {
             Person person = personBuilder.createPerson(personGroupId, simplePerson.personName, simplePerson.personUserData).withResult();
             List<ImageHolder> personImages = simplePerson.personImages;
             for (ImageHolder imageHolder : personImages) {

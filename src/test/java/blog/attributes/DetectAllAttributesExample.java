@@ -222,8 +222,10 @@ public class DetectAllAttributesExample {
     private static final String IMAGE_URL = "http://thecircular.org/wp-content/uploads/2013/10/Love-Hate-Series-4-Tom-Vaughan-Lawlor-as-Nidge.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(getProperty("azure.cognitive.subscriptionKey"),
-                getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(
+            getProperty("azure.cognitive.subscriptionKey"),
+            getProperty("azure.cognitive.emotion.subscriptionKey"),
+            getProperty("azure.cognitive.endpoint"));
         List<Face> faces = faceScenarios.findFaces(IMAGE_URL);
         ImageOverlayBuilder.builder(IMAGE_URL).outlineFacesOnImage(faces, RectangleType.CORNERED, CognitiveJColourPalette.MEADOW).
                 writeFaceAttributes(faces, CognitiveJColourPalette.MEADOW, RectangleTextPosition.TOP_OF).launchViewer();

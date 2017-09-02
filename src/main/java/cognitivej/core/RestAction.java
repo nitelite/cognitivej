@@ -229,7 +229,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class RestAction<T> {
-    private static final String PROJECTOXFORD_AI = "https://api.projectoxford.ai/";
     public static final String IMAGE_INPUT_STREAM_KEY = "imageInputStream";
     private final CognitiveContext cognitiveContext;
 
@@ -250,6 +249,7 @@ public abstract class RestAction<T> {
         return ExponentialBackOff.execute(this::doWork);
     }
 
+    @NotNull
     private T doWork() {
         try {
             setupErrorHandlers();
@@ -313,7 +313,7 @@ public abstract class RestAction<T> {
 
 
     private HttpRequest buildUnirest(WorkingContext workingContext) {
-        String url = String.format("%s%s", PROJECTOXFORD_AI, workingContext.getPathBuilt());
+        String url = String.format("%s%s", cognitiveContext.endpointUrl, workingContext.getPathBuilt());
         switch (workingContext.getHttpMethod()) {
             case GET:
                 return Unirest.get(url);

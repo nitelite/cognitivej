@@ -215,32 +215,38 @@ class DescribeImageSpecification extends Specification {
 
     def "Describe an image from an image url"() {
         setup:
-        ComputerVisionBuilder visionBuilder = new ComputerVisionBuilder(CognitiveContext.build(System.getProperty("azure.cognitive.computervision.subscriptionKey")))
+            ComputerVisionBuilder visionBuilder = new ComputerVisionBuilder(CognitiveContext.build(
+                    System.getProperty("azure.cognitive.computervision.subscriptionKey"),
+                    System.getProperty("azure.cognitive.endpoint")
+            ))
         when:
-        ImageDescription imageDescription = visionBuilder.describeImage(1, imageUrl).withResult();
+            ImageDescription imageDescription = visionBuilder.describeImage(1, imageUrl).withResult()
         then:
-        imageDescription.description
-        imageDescription.metadata
-        imageDescription.requestId
+            imageDescription.description
+            imageDescription.metadata
+            imageDescription.requestId
         where:
-        imageUrl                                                                                                | _
-        "https://upload.wikimedia.org/wikipedia/commons/e/ea/Official_portrait_of_Vice_President_Joe_Biden.jpg" | _
-        "https://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg"                        | _
+            imageUrl                                                                                                | _
+            "https://upload.wikimedia.org/wikipedia/commons/e/ea/Official_portrait_of_Vice_President_Joe_Biden.jpg" | _
+            "https://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg"                        | _
     }
 
 
     def "Describe an image from an image stream"() {
         setup:
-        ComputerVisionBuilder visionBuilder = new ComputerVisionBuilder(CognitiveContext.build(System.getProperty("azure.cognitive.computervision.subscriptionKey")))
+            ComputerVisionBuilder visionBuilder = new ComputerVisionBuilder(CognitiveContext.build(
+                    System.getProperty("azure.cognitive.computervision.subscriptionKey"),
+                    System.getProperty("azure.cognitive.endpoint")
+            ))
         when:
-        ImageDescription imageDescription = visionBuilder.describeImage(1, inputStream).withResult();
+            ImageDescription imageDescription = visionBuilder.describeImage(1, inputStream).withResult()
         then:
-        imageDescription.description
-        imageDescription.metadata
-        imageDescription.requestId
+            imageDescription.description
+            imageDescription.metadata
+            imageDescription.requestId
         where:
-        inputStream                                                                                        | _
-        TestUtil.fromUrl('https://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg') | _
+            inputStream                                                                                        | _
+            TestUtil.fromUrl('https://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg') | _
 
 
     }

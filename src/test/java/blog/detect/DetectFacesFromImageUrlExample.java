@@ -222,8 +222,9 @@ public class DetectFacesFromImageUrlExample {
 
     public static void main(String[] args){
         FaceScenarios faceScenarios = new FaceScenarios(
-                getProperty("azure.cognitive.subscriptionKey"),
-                getProperty("azure.cognitive.emotion.subscriptionKey"));
+            getProperty("azure.cognitive.subscriptionKey"),
+            getProperty("azure.cognitive.emotion.subscriptionKey"),
+            getProperty("azure.cognitive.endpoint"));
         ImageOverlayBuilder imageOverlayBuilder = ImageOverlayBuilder.builder(IMAGE_URL);
         imageOverlayBuilder.outlineFacesOnImage(faceScenarios.findFaces(IMAGE_URL),
                 RectangleType.FULL, CognitiveJColourPalette.STRAWBERRY).launchViewer();

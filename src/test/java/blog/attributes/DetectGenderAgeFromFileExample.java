@@ -218,6 +218,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
+import static java.lang.System.getProperty;
+
 
 /**
  * Simple example of detecting a face from a file.
@@ -226,7 +228,10 @@ public class DetectGenderAgeFromFileExample {
     private static final String IMAGE_LOCATION = "http://www.publicdomainpictures.net/pictures/20000/velka/family-of-three-871290963799xUk.jpg";
 
     public static void main(String[] args) throws IOException {
-        FaceScenarios faceScenarios = new FaceScenarios(System.getProperty("azure.cognitive.subscriptionKey"), System.getProperty("azure.cognitive.emotion.subscriptionKey"));
+        FaceScenarios faceScenarios = new FaceScenarios(
+            getProperty("azure.cognitive.subscriptionKey"),
+            getProperty("azure.cognitive.emotion.subscriptionKey"),
+            getProperty("azure.cognitive.endpoint"));
         File imageFile = File.createTempFile("DetectSingleFaceFromFileExample", "pic");
         //create a new java.io.File from a remote file
         FileUtils.copyURLToFile(new URL(IMAGE_LOCATION), imageFile);

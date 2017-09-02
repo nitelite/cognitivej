@@ -373,7 +373,7 @@ public class ComputerVisionBuilder {
 
     /**
      * This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.
-     * <p>Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”. All tags are in English.
+     * <p>Tags may contain hints to avoid ambiguity or provide context, for example the tag "cello" may be accompanied by the hint "musical instrument". All tags are in English.
      *
      * @param imageUrl URL of input image.
      * @return a built {@link TagImageAction}
@@ -386,7 +386,7 @@ public class ComputerVisionBuilder {
 
     /**
      * This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.
-     * <p>Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”. All tags are in English.
+     * <p>Tags may contain hints to avoid ambiguity or provide context, for example the tag "cello" may be accompanied by the hint "musical instrument". All tags are in English.
      *
      * @param image inputstream of local image.
      * @return a built {@link TagImageAction}
@@ -399,7 +399,7 @@ public class ComputerVisionBuilder {
 
     /**
      * This operation generates a list of words, or tags, that are relevant to the content of the supplied image. The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images. Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.
-     * <p>Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”. All tags are in English.
+     * <p>Tags may contain hints to avoid ambiguity or provide context, for example the tag "cello" may be accompanied by the hint "musical instrument". All tags are in English.
      *
      * @return a built {@link ListDomainSpecificModelsAction}
      * @see <a href="https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd">MS Cognitive Docs (Computer Vision - List Domain Specific Models)</a>

@@ -223,8 +223,8 @@ public class EmotionScenario {
     /**
      * @param subscriptionKey your MS Cognitive key - Signup here -https://www.microsoft.com/cognitive-services/en-us/face-api
      */
-    public EmotionScenario(@NotNull String subscriptionKey) {
-        CognitiveContext cognitiveContext = CognitiveContext.build(subscriptionKey);
+    public EmotionScenario(@NotNull String subscriptionKey, @NotNull String endpointUrl) {
+        CognitiveContext cognitiveContext = CognitiveContext.build(subscriptionKey, endpointUrl);
         emotionBuilder = new EmotionBuilder(cognitiveContext);
     }
 

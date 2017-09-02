@@ -213,6 +213,8 @@ import cognitivej.vision.face.task.Face;
 
 import java.io.IOException;
 
+import static java.lang.System.getProperty;
+
 
 /**
  * Simple example of detecting a face from a file.
@@ -222,7 +224,7 @@ public class DetectGenderAgeFromURLExample {
 
     public static void main(String[] args) throws IOException {
         FaceScenarios faceScenarios = new FaceScenarios(System.getProperty("azure.cognitive.subscriptionKey"),
-                System.getProperty("azure.cognitive.emotion.subscriptionKey"));
+                System.getProperty("azure.cognitive.emotion.subscriptionKey"), getProperty("azure.cognitive.endpoint"));
         ImageOverlayBuilder imageOverlayBuilder = ImageOverlayBuilder.builder(FILE_LOCATION_OF_US_PRESIDENT);
         Face face = faceScenarios.findSingleFace(FILE_LOCATION_OF_US_PRESIDENT);
         imageOverlayBuilder.outlineFaceOnImage(face, RectangleType.FULL, ImageOverlayBuilder.DEFAULT_BORDER_WEIGHT, CognitiveJColourPalette.POPPY).writeGenderAndAge(face, CognitiveJColourPalette.POPPY).launchViewer();
